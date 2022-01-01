@@ -4,6 +4,8 @@ local winerror = {}
 
 ffi.cdef[[
 DWORD GetLastError(void);
+
+void SetLastError(DWORD dwErrCode);
 ]]
 local C = ffi.C
 
@@ -34,6 +36,10 @@ end
 function winerror.checkNotEqual(n, key)
 	if n == key then winerror.testLastError(2) end
 	return n
+end
+
+function winerror.clearLastError()
+	C.SetLastError(0)
 end
 
 return winerror

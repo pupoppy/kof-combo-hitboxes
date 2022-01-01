@@ -30,9 +30,11 @@ KOF98.boxesPerLayer = 20
 KOF98.boxtypes = boxtypes
 KOF98.revisions = {
 	["Steam"] = {
-		playerPtrs = { 0x0170D000, 0x0170D200 },
+		playerPtrs = { 0x019EB200, 0x019EB400 }, --playerPtrs = { 0x0170D000, 0x0170D200 },
+		-- TODO: WIP
 		playerExtraPtrs = { 0x01715600, 0x0171580C },
-		cameraPtr = 0x0180C938,
+		cameraPtr = 0x019F1544, --cameraPtr = 0x0180C938,
+		-- TODO: WIP
 		projectilesListInfo = { start = 0x01703000, count = 51, step = 0x200 },
 	},
 	["GOG.com"] = {
@@ -42,6 +44,8 @@ KOF98.revisions = {
 		projectilesListInfo = { start = 0x0174F700, count = 29, step = 0x200 },
 	},
 }
+
+KOF98.baseAddress = 0
 
 KOF98.drawRangeMarkers = { false, false }
 KOF98.rangeMarkerHotkeys = { hotkey.VK_F1, hotkey.VK_F2 }
@@ -120,8 +124,8 @@ end
 
 function KOF98:capturePlayerState(which)
 	local player = self.players[which]
-	self:read(self.playerPtrs[which], player)
-	self:read(self.playerExtraPtrs[which], self.playerExtras[which])
+	self:read(self.baseAddress + self.playerPtrs[which], player)
+	self:read(self.baseAddress + self.playerExtraPtrs[which], self.playerExtras[which])
 	self:captureEntity(player, false)
 end
 
@@ -131,7 +135,7 @@ function KOF98:captureProjectiles()
 	local minAddress, maxAddress = pointer
 	for i = 1, info.count do
 		maxAddress = pointer
-		self:read(pointer, current)
+		self:read(self.baseAddress + pointer, current)
 		if current.basicStatus > 0 then
 			self:captureEntity(current, true)
 		end
@@ -140,10 +144,14 @@ function KOF98:captureProjectiles()
 	--print(string.format("Read from range 0x%08X to 0x%08X", minAddress, maxAddress))
 end
 
+function KOF98:relocate(base)
+	self.baseAddress = base
+end
+
 function KOF98:captureState()
 	self.boxset:reset()
 	self.pivots:reset()
-	self:read(self.cameraPtr, self.camera)
+	self:read(self.baseAddress + self.cameraPtr, self.camera)
 	for i = 1, 2 do 
 		if self.playersEnabled[i] then
 			self:capturePlayerState(i)

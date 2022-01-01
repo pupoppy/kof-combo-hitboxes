@@ -111,11 +111,21 @@ typedef PSTR            *PZPSTR;
 typedef const PSTR      *PCZPSTR;
 typedef const CHAR      *LPCSTR, *PCSTR;
 typedef PCSTR           *PZPCSTR;
+// TODO: compile UNICODE
+/*
 typedef char            TCHAR, *PTCHAR;
 typedef unsigned char   TBYTE, *PTBYTE;
 typedef LPCH            LPTCH, PTCH;
 typedef LPSTR           PTSTR, LPTSTR, PUTSTR, LPUTSTR;
 typedef LPCSTR          PCTSTR, LPCTSTR, PCUTSTR, LPCUTSTR;
+*/
+typedef wchar_t            TCHAR, *PTCHAR;
+typedef WCHAR   TBYTE, *PTBYTE;
+typedef wchar_t            LPTCH, PTCH;
+typedef LPWSTR           PTSTR, LPTSTR, PUTSTR, LPUTSTR;
+typedef LPCWSTR          PCTSTR, LPCTSTR, PCUTSTR, LPCUTSTR;
+
+
 typedef SHORT           *PSHORT;
 typedef LONG            *PLONG;
 typedef VOID            *HANDLE;

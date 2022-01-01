@@ -72,7 +72,9 @@ local function checkGameIsSteamOrGOG(params, hwnd, lParam)
 	if result then
 		local handle = result.gameHandle
 		local modules = winprocess.listLoadedModules(handle, true)
-		result.revision = (modules["steam_api.dll"] and "Steam") or "GOG.com"
+		result.revision = (modules["steam_api.dll"] and "Steam")
+			or (modules["steam_api64.dll"] and "Steam")
+			or "GOG.com"
 	end
 	return result
 end
@@ -151,7 +153,7 @@ local detectedGames = {
 		module = "steam.kof98um",
 		prettyName = "King of Fighters '98 Ultimate Match Final Edition",
 		targetWindowTitle = "King of Fighters '98 Ultimate Match Final Edition",
-		targetProcessName = "KingOfFighters98UM.exe",
+		targetProcessName = "KingOfFighters98UM_x64.exe",
 	}),
 	SteamOrGOGGame:new({
 		module = "steam.kof2002um",

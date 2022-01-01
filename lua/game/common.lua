@@ -109,6 +109,7 @@ function Game_Common:setupOverlay(directx)
 end
 
 function Game_Common:read(address, buffer)
+--print(string.format("read addr: %x (%s)", address, self.gameHandle))
 	local newAddress = self:pointerRangeCheck(address)
 	local addressBuf = self.addressBuf
 	addressBuf.i = newAddress
@@ -117,21 +118,25 @@ function Game_Common:read(address, buffer)
 end
 
 function Game_Common:readPtr(address, buffer)
+--print(string.format("readPtr addr: %x (%s)", address, self.gameHandle))
 	local newAddress = self:pointerRangeCheck(address)
 	buffer = (buffer or self.pointerBuf)
 	buffer.i = newAddress
 	winprocess.read(self.gameHandle, buffer, buffer)
+-- TODO: fix x86 version
+--buffer.i = bit.band(buffer.i, 0xFFFFFFFF)
 	return buffer.i, address
 end
 
 function Game_Common:pointerRangeCheck(address)
 	local lower, upper = self.RAMbase, self.RAMlimit
 	address = address + lower
-	if address < lower or address > upper then
-		local message = string.format(self.RAM_RANGE_ERROR,
-			address, lower, upper)
-		error(message, 3) -- throw error where read()/readPtr() was called
-	end
+-- TODO: 64bit address
+--	if address < lower or address > upper then
+--		local message = string.format(self.RAM_RANGE_ERROR,
+--			address, lower, upper)
+--		error(message, 3) -- throw error where read()/readPtr() was called
+--	end
 	return address
 end
 

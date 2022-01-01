@@ -130,7 +130,9 @@ window.defaultWindowTitle = ffi.cast("LPCTSTR", window.wcsTitle)
 window.defaultWindowClass = {
 	cbSize = ffi.sizeof("WNDCLASSEX"),
 	style = bit.bor(window.CS_HREDRAW, window.CS_VREDRAW),
-	lpfnWndProc = ffi.new("WNDPROC", winutil.WindowProc),
+	-- TODO: fix x64, CreateWindowEx return to NULL
+	--lpfnWndProc = ffi.new("WNDPROC", winutil.WindowProc),
+	lpfnWndProc = C.DefWindowProcW,
 	cbClsExtra = 0,
 	cbWndExtra = 0,
 	hInstance = ffi.cast("HINSTANCE", NULL),
