@@ -34,8 +34,7 @@ KOF98.revisions = {
 		-- TODO: WIP
 		playerExtraPtrs = { 0x01715600, 0x0171580C },
 		cameraPtr = 0x019F1544, --cameraPtr = 0x0180C938,
-		-- TODO: WIP
-		projectilesListInfo = { start = 0x01703000, count = 51, step = 0x200 },
+		projectilesListInfo = { start = 0x019E1200, count = 51, step = 0x200 }, --projectilesListInfo = { start = 0x01703000, count = 51, step = 0x200 },
 	},
 	["GOG.com"] = {
 		playerPtrs = { 0x01759700, 0x01759900 },
