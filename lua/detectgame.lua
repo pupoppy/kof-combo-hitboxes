@@ -159,7 +159,7 @@ local detectedGames = {
 		module = "steam.kof2002um",
 		prettyName = "King of Fighters 2002 Unlimited Match",
 		targetWindowTitle = "King of Fighters 2002 Unlimited Match",
-		targetProcessName = "KingOfFighters2002UM.exe",
+		targetProcessName = "KingOfFighters2002UM_x64.exe",
 	}),
 	SteamGame:new({
 		module = "steam.ggxxacplusr",

@@ -9,10 +9,11 @@ KOF02.configSection = "kof2002um"
 KOF02.boxtypes = boxtypes
 KOF02.revisions = {
 	["Steam"] = {
-		playerPtrs = { 0x0167C3A0, 0x0167C5C0 },
+		playerPtrs = { 0x040A0DDC, 0x040A0FFC }, --playerPtrs = { 0x0167C3A0, 0x0167C5C0 },
+		-- TODO: WIP
 		playerExtraPtrs = { 0x0167EA00, 0x01683240 },
-		cameraPtr = 0x02208BF8,
-		projectilesListInfo = { start = 0x0166DE20, count = 34, step = 0x220 },
+		cameraPtr = 0x040A915C, --cameraPtr = 0x02208BF8,
+		projectilesListInfo = { start = 0x0409285C, count = 34, step = 0x220 }, --projectilesListInfo = { start = 0x0166DE20, count = 34, step = 0x220 },
 	},
 	["GOG.com"] = {
 		playerPtrs = { 0x01BD33C0, 0x01BD35E0 },
