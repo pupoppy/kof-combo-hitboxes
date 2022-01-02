@@ -1,3 +1,4 @@
+local ffi = require("ffi")
 local luautil = require("luautil")
 local window = require("window")
 local winprocess = require("winprocess")
@@ -123,8 +124,8 @@ function Game_Common:readPtr(address, buffer)
 	buffer = (buffer or self.pointerBuf)
 	buffer.i = newAddress
 	winprocess.read(self.gameHandle, buffer, buffer)
--- TODO: fix x86 version
---buffer.i = bit.band(buffer.i, 0xFFFFFFFF)
+-- TODO: in-game pointer is 32bit, supported luajit v2.1
+	buffer.i = bit.band(buffer.i, 0xFFFFFFFF)
 	return buffer.i, address
 end
 
