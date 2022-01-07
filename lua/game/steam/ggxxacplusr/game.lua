@@ -27,7 +27,7 @@ GGXX.useThickLines = false
 GGXX.boxesPerLayer = 50
 -- game-specific constants
 GGXX.boxtypes = boxtypes
-GGXX.playerPtrs = { 0x006DC164, 0x0069F024 } -- GGXX.playerPtrs = { 0x00516778, 0x0051A07C } -- pointers to pointers
+GGXX.playerPtrs = { 0x006DC164, 0x006A722C } -- GGXX.playerPtrs = { 0x00516778, 0x0051A07C } -- pointers to pointers
 -- "start" here is a pointer-to-pointer
 GGXX.projectilesListInfo = { start = 0x006A3924, step = 0x130, count = 20 } --GGXX.projectilesListInfo = { start = 0x0051677C, step = 0x130, count = 20 }
 GGXX.pushBoxTargetPointers = {
