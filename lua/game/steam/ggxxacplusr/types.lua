@@ -34,9 +34,9 @@ typedef struct {
 	byte padding01[0x00E];    // +010h to +01Eh: Unknown
 	word health;              // +01Eh: Current HP
 	byte padding02[0x00C];    // +020h to +02Ch: Unknown
-	intptr_t playerExtraPtr;  // +02Ch: Pointer to "playerExtra" struct
+	dword playerExtraPtr;  // +02Ch: Pointer to "playerExtra" struct
 	byte padding03[0x024];    // +030h to +054h: Unknown
-	intptr_t boxPtr;          // +054h: Pointer to current hitbox set
+	dword boxPtr;          // +054h: Pointer to current hitbox set
 	byte padding04[0x02C];    // +058h to +084h: Unknown
 	byte boxCount;            // +084h: Box count (plus/minus 1?)
 	byte padding05[0x02B];    // +085h to +0B0h: Unknown

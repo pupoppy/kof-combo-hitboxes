@@ -27,15 +27,15 @@ GGXX.useThickLines = false
 GGXX.boxesPerLayer = 50
 -- game-specific constants
 GGXX.boxtypes = boxtypes
-GGXX.playerPtrs = { 0x00516778, 0x0051A07C } -- pointers to pointers
+GGXX.playerPtrs = { 0x006DC164, 0x0069F024 } -- GGXX.playerPtrs = { 0x00516778, 0x0051A07C } -- pointers to pointers
 -- "start" here is a pointer-to-pointer
-GGXX.projectilesListInfo = { start = 0x0051677C, step = 0x130, count = 20 }
+GGXX.projectilesListInfo = { start = 0x006A3924, step = 0x130, count = 20 } --GGXX.projectilesListInfo = { start = 0x0051677C, step = 0x130, count = 20 }
 GGXX.pushBoxTargetPointers = {
 	{ 0x003D5124, 0x003D5B08 },
 	{ 0x003D5B3C, 0x003D3E3C },
 	{ 0x003D3534, 0x003D3E3C },
 }
-GGXX.cameraPtr = 0x0051B0D4
+GGXX.cameraPtr = 0x006A827C --GGXX.cameraPtr = 0x0051B0D4
 GGXX.startupMessage = [[
 This game has known issues.
 * Grab boxes are currently not displayed.
