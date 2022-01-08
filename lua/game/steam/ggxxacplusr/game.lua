@@ -31,9 +31,9 @@ GGXX.playerPtrs = { 0x006DC164, 0x006A722C } -- GGXX.playerPtrs = { 0x00516778, 
 -- "start" here is a pointer-to-pointer
 GGXX.projectilesListInfo = { start = 0x006A3924, step = 0x130, count = 20 } --GGXX.projectilesListInfo = { start = 0x0051677C, step = 0x130, count = 20 }
 GGXX.pushBoxTargetPointers = {
-	{ 0x003D5124, 0x003D5B08 },
-	{ 0x003D5B3C, 0x003D3E3C },
-	{ 0x003D3534, 0x003D3E3C },
+	{ 0x00545904, 0x005462E8 }, -- { 0x003D5124, 0x003D5B08 },
+	{ 0x0054631C, 0x0054461C }, -- { 0x003D5B3C, 0x003D3E3C },
+	{ 0x00543D14, 0x0054461C }, -- { 0x003D3534, 0x003D3E3C },
 }
 GGXX.cameraPtr = 0x006A827C --GGXX.cameraPtr = 0x0051B0D4
 GGXX.startupMessage = [[
