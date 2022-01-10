@@ -1,4 +1,7 @@
-KoF Combo Hitbox Viewer, version 1.0.3
+KoF Combo Hitbox Viewer, version 1.0.3_x64_fix
+https://github.com/pupoppy/kof-combo-hitboxes
+
+KoF Combo Hitbox Viewer, Original repository
 https://github.com/odabugs/kof-combo-hitboxes
 
 Basic usage instructions:
@@ -9,7 +12,7 @@ Basic usage instructions:
 Windows Vista or newer is required, with Windows Aero and DWM enabled.
 PS2 games are tested with PCSX2 1.4.0.
 Configuration settings can be changed in default.ini.
-Embedded LuaJIT is version 2.0.5, compiled for 32-bit (http://luajit.org/).
+Embedded LuaJIT is version 2.1.0-beta3, compiled for 64-bit (http://luajit.org/).
 
 Supported games:
 - Steam:

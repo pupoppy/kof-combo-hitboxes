@@ -70,9 +70,6 @@ end
 
 -- expects a cdata of type "ptrBuffer" (winutil.lua) for address parameter
 function winprocess.read(handle, address, buffer, n, bytesReadBuffer)
---print(string.format("ReadProcessMemory: %s, %s, %s, %s, %s", handle, address, buffer, n, bytesReadBuffer))
---print(string.format("address.p: %s", address.p))
---print(string.format("bufferSizeof: %d", ffi.sizeof(buffer)))
 	local result = C.ReadProcessMemory(
 		handle, address.p, buffer, n or ffi.sizeof(buffer),
 		bytesReadBuffer or NULL)
