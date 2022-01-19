@@ -31,7 +31,7 @@ KOF98.boxtypes = boxtypes
 KOF98.revisions = {
 	["Steam"] = {
 		playerPtrs = { 0x019EB200, 0x019EB400 }, --playerPtrs = { 0x0170D000, 0x0170D200 },
-		-- playerPtrに+0x64hした位置がキャラクター基準速度。現在の速度も同じ値となっていて基準速度と同値で検索すると何箇所か見つかるはず。
+		-- playerPtrに+064hした位置がキャラクター基準速度。現在の速度も同じ値となっていて基準速度と同値で検索すると何箇所か見つかるはず。
 		-- それらの値を変更してキャラクターの速度が変わるようであれば、そこがplayerExtraPtrの先頭アドレスとなる。
 		playerExtraPtrs = { 0x019EF800, 0x019EFA0C }, -- playerExtraPtrs = { 0x01715600, 0x0171580C },
 		cameraPtr = 0x019F1544, --cameraPtr = 0x0180C938,
