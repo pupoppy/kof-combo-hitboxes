@@ -9,7 +9,6 @@ KOF02.configSection = "kof2002um"
 KOF02.boxtypes = boxtypes
 KOF02.revisions = {
 	["Steam"] = {
-		-- 2022-01-19 game updated: adjust offset +0193C0h
 		playerPtrs = { 0x040BA21C, 0x040BA43C }, --playerPtrs = { 0x0167C3A0, 0x0167C5C0 },
 		playerExtraPtrs = { 0x040AB00C, 0x040AB324 }, -- playerExtraPtrs = { 0x0167EA00, 0x01683240 },
 		cameraPtr = 0x040C259C, --cameraPtr = 0x02208BF8,
