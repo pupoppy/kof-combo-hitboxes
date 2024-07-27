@@ -27,15 +27,26 @@ GGXX.useThickLines = false
 GGXX.boxesPerLayer = 50
 -- game-specific constants
 GGXX.boxtypes = boxtypes
-GGXX.playerPtrs = { 0x006DC164, 0x006A722C } -- GGXX.playerPtrs = { 0x00516778, 0x0051A07C } -- pointers to pointers
+-- 2byte health値は初期値460、health減らして検索
+-- healthアドレス - 0x1E してキャラIDアドレス算出
+-- キャラIDアドレスを保持している4byteポインタ値を検索
+GGXX.playerPtrs = { 0x006D1378, 0x006D4C84 } -- GGXX.playerPtrs = { 0x00516778, 0x0051A07C } -- pointers to pointers
 -- "start" here is a pointer-to-pointer
-GGXX.projectilesListInfo = { start = 0x006A3924, step = 0x130, count = 20 } --GGXX.projectilesListInfo = { start = 0x0051677C, step = 0x130, count = 20 }
+-- 飛び道具はcameraPtr address - 0x4958で算出
+GGXX.projectilesListInfo = { start = 0x006D137C, step = 0x130, count = 20 } --GGXX.projectilesListInfo = { start = 0x0051677C, step = 0x130, count = 20 }
 GGXX.pushBoxTargetPointers = {
-	{ 0x00545904, 0x005462E8 }, -- { 0x003D5124, 0x003D5B08 },
-	{ 0x0054631C, 0x0054461C }, -- { 0x003D5B3C, 0x003D3E3C },
-	{ 0x00543D14, 0x0054461C }, -- { 0x003D3534, 0x003D3E3C },
+-- 下記値のアドレスを検索
+-- 0C800000, 27100000
+-- 0BB80000, 32C80000
+-- 0BB80000, 32C80000
+	{ 0x00573154, 0x00573B38 }, -- { 0x003D5124, 0x003D5B08 },
+	{ 0x00573B6C, 0x00571E6C }, -- { 0x003D5B3C, 0x003D3E3C },
+	{ 0x00571564, 0x00571E6C }, -- { 0x003D3534, 0x003D3E3C },
 }
-GGXX.cameraPtr = 0x006A827C --GGXX.cameraPtr = 0x0051B0D4
+-- 4byte xCenter値はズームイン時中央0、右端44000、左端-44000
+-- xCenterアドレス - 0x10 してカメラ先頭アドレスを調べる
+-- カメラアドレスを保持している4byteポインタ値を検索
+GGXX.cameraPtr = 0x006D5CD4 --GGXX.cameraPtr = 0x0051B0D4
 GGXX.startupMessage = [[
 This game has known issues.
 * Grab boxes are currently not displayed.
